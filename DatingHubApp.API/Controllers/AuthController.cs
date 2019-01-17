@@ -18,7 +18,8 @@ namespace DatingHubApp.API.Controllers
     {
          private readonly IAuthRepository _repo;
 
-         private readonly IConfiguration _config;
+        private readonly IConfiguration _config;
+        
         public AuthController(IAuthRepository repo, IConfiguration config)
         {
             _repo = repo;
@@ -49,6 +50,8 @@ namespace DatingHubApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+            
+
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.password);
 
             if (userFromRepo == null)
@@ -78,6 +81,7 @@ namespace DatingHubApp.API.Controllers
             return Ok(new {
                 token = tokenHandler.WriteToken(token)
             });
+
         }
     }
 }
