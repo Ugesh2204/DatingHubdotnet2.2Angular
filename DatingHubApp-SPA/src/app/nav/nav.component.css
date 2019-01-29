@@ -1,7 +1,16 @@
 .dropdown-toggle, .dropdown-item {
-    cursor: pointer;
+    cursor: point
 }
-/* .spacer {
-    width: 50%;
-} */
+
+@media all and (min-width:992px){
+
+    .space-left {
+        margin-left: 25%;
+    }
+
+}
+
+
+
+
 

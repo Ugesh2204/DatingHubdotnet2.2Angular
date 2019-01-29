@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark  bg-dark">
   <div class="container" >
 
-     <a class="navbar-brand" href="#">Dating Hub</a>
+     <a class="navbar-brand" [routerLink]="['/home']" >Dating Hub</a>
   
     <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" 
     (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
@@ -11,14 +11,14 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault" [collapse]="!isCollapsed" >
       
         <ul *ngIf="loggedIn()" class="navbar-nav mr-auto"   >
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Matches </a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/members']">Matches </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Lists</a>
+          <li class="nav-item" routerLinkActive="active" >
+            <a class="nav-link" [routerLink]="['/lists']" >Lists</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+          <li class="nav-item" routerLinkActive="active" >
+            <a class="nav-link" [routerLink]="['/messages']" >Messages</a>
           </li>
         </ul>
       
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0 space-left" (ngSubmit)="login()">
         <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required [(ngModel)]="model.username">
         <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required  [(ngModel)]="model.password">
         <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
